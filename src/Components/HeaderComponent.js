@@ -1,22 +1,19 @@
 import React, { Component } from "react";
-import { Nav, NavItem, Navbar } from "reactstrap";
+import { Nav, NavItem, Navbar, NavbarBrand, Button } from "reactstrap";
 
 class Header extends Component {
 	render() {
 		return (
-			<>
-				<Navbar dark expand="md">
-					<Nav navbar>
-						<img
-							src="images/cat.jpeg"
-							height="70"
-							width="70"
-							alt="display pic"
-						/>
-						Achal
-					</Nav>
-				</Navbar>
-			</>
+			<Navbar dark>
+				<NavbarBrand className="mr-auto" href="/">
+					<Button
+						className="btn btn-primary"
+						style={{ backgroundColor: "#128C7E", border: "none" }}
+					>
+						<span className="fa fa-arrow-left"></span>
+					</Button>
+				</NavbarBrand>
+			</Navbar>
 		);
 	}
 }
