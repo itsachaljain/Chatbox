@@ -24,9 +24,13 @@ class Chatbox extends Component {
 
 	render() {
 		return (
-			<div>
-				<Header />
-				<Display messages={this.props.messages.messages} />
+			<div className="row">
+				<div className="col-md-4">
+					<Header />
+				</div>
+				<div className="col-8">
+					<Display messages={this.props.messages.messages} />
+				</div>
 			</div>
 		);
 	}
