@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./HeaderComponent";
-import Footer from "./FooterComponent";
 import Display from "./DisplayComponent";
 import { connect } from "react-redux";
 import { postMessage, fetchMessages } from "../redux/ActionCreators";
@@ -28,7 +27,6 @@ class Chatbox extends Component {
 			<div>
 				<Header />
 				<Display messages={this.props.messages.messages} />
-				<Footer postMessage={this.props.postMessage} />
 			</div>
 		);
 	}
