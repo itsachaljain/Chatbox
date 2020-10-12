@@ -3,6 +3,7 @@ import Header from "./HeaderComponent";
 import Display from "./DisplayComponent";
 import { connect } from "react-redux";
 import { postMessage, fetchMessages } from "../redux/ActionCreators";
+import Footer from "./FooterComponent";
 
 const mapStateToProps = (state) => {
 	return {
@@ -18,19 +19,22 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Chatbox extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			messages: [],
+		};
+	}
 	componentDidMount() {
 		this.props.fetchMessages();
 	}
 
 	render() {
 		return (
-			<div className="row">
-				<div className="col-md-4">
-					<Header />
-				</div>
-				<div className="col-8">
-					<Display messages={this.props.messages.messages} />
-				</div>
+			<div>
+				<Header />
+				<Display messages={this.props.messages.messages} />
+				<Footer postMessage={this.props.postMessage} />
 			</div>
 		);
 	}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Footer from "./FooterComponent";
 
-function RenderMessages({ messages, postMessage }) {
+function RenderMessages({ messages }) {
 	if (messages != null) {
 		return (
 			<div className="container">
@@ -10,20 +9,10 @@ function RenderMessages({ messages, postMessage }) {
 						return (
 							<li>
 								<p>{message.message}</p>
-								<p>
-									{new Intl.DateTimeFormat("en-US", {
-										year: "numeric",
-										month: "short",
-										day: "2-digit",
-									}).format(new Date(Date.parse(message.date)))}
-								</p>
 							</li>
 						);
 					})}
 				</ul>
-				<div>
-					<Footer postMessage={postMessage} />
-				</div>
 			</div>
 		);
 	}

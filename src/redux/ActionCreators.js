@@ -1,5 +1,5 @@
 import * as ActionTypes from "./ActionTypes";
-import * as baseUrl from "./baseUrl";
+import { baseUrl } from "../shared/baseUrl";
 
 export const addMessage = (message) => ({
 	type: ActionTypes.POST_MESSAGE,

@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import { Button, Input } from "reactstrap";
 
 class Footer extends Component {
-	handleSubmit(values) {
-		this.props.postMessage(values.message);
+	constructor(props) {
+		super(props);
+		this.state = {
+			message: "",
+		};
 	}
+	handleSubmit = () => {
+		this.props.postMessage(this.state.message);
+	};
+
+	handleOnChange = (e) => {
+		this.setState({ message: e.target.value });
+	};
 
 	render() {
 		return (
@@ -14,6 +24,8 @@ class Footer extends Component {
 						<div style={{ padding: 2 }}></div>
 						<div className="col-11">
 							<Input
+								value={this.state.message}
+								onChange={this.handleOnChange}
 								name="message"
 								placeholder="Type a message"
 								style={{ borderRadius: 20 }}
@@ -21,7 +33,7 @@ class Footer extends Component {
 						</div>
 						<div className="col">
 							<Button
-								onSubmit={this.handleSubmit}
+								onClick={this.handleSubmit}
 								type="submit"
 								size="md"
 								style={{
