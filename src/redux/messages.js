@@ -9,7 +9,7 @@ export const Messages = (
 ) => {
 	switch (action.type) {
 		case ActionTypes.POST_MESSAGE:
-			return { ...state, messages: state.messages.concat(message) };
+			return { ...state, messages: state.messages.concat(action.payload) };
 
 		case ActionTypes.FAILED_MESSAGES:
 			return { ...state, errMess: action.payload };

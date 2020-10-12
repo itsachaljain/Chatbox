@@ -21,6 +21,7 @@ class Footer extends Component {
 						</div>
 						<div className="col">
 							<Button
+								onSubmit={(values) => this.handleSubmit(values)}
 								type="submit"
 								size="md"
 								style={{
