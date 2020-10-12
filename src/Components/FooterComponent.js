@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, Input } from "reactstrap";
 
 class Footer extends Component {
-	constructor(props) {
-		super(props);
+	handleSubmit(values) {
+		this.props.postMessage(values.message);
 	}
 
 	render() {
@@ -14,12 +14,14 @@ class Footer extends Component {
 						<div style={{ padding: 2 }}></div>
 						<div className="col-11">
 							<Input
+								name="message"
 								placeholder="Type a message"
 								style={{ borderRadius: 20 }}
 							/>
 						</div>
 						<div className="col">
 							<Button
+								type="submit"
 								size="md"
 								style={{
 									backgroundColor: "#128C7E",
