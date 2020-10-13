@@ -18,13 +18,14 @@
 }
 
 .card {
-	background-color: #FCFA91;
+	background-color: #fcfa91;
 	size: relative;
 	flex: 1;
 	padding-left: 30px;
 	padding-right: 60px;
 	align-items: center;
 	justify-content: center;
+	max-width: fit-content;
 }
 
 .card-title {
