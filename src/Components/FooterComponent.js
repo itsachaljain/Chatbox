@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Input } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
 	constructor(props) {
@@ -38,7 +39,7 @@ class Footer extends Component {
 					size="md"
 					style={{
 						backgroundColor: "#128C7E",
-						color: "white",
+						color: "black",
 						border: "none",
 						borderRadius: 30,
 						cursor: "pointer",
@@ -49,6 +50,19 @@ class Footer extends Component {
 				>
 					<span className="fa fa-paper-plane"></span>
 				</Button>
+				<Link
+					size="md"
+					style={{
+						backgroundColor: "#128C7E",
+						color: "black",
+						border: "none",
+						cursor: "pointer",
+						paddingLeft: 370,
+					}}
+					to="/"
+				>
+					<span className="fa fa-sign-out"></span> Exit
+				</Link>
 			</div>
 		);
 	}
