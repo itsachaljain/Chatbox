@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardTitle, } from 'reactstrap';
+import { Card, CardBody, CardTitle } from "reactstrap";
 
 function RenderMessages({ messages }) {
 	if (messages != null) {
@@ -8,7 +8,11 @@ function RenderMessages({ messages }) {
 				<ul className="list-unstyled">
 					{messages.map((message) => {
 						return (
-							<Card className = "text-center" style = {{backgroundColor: '#128c7e'}} border = "dark">
+							<Card
+								className="text-center"
+								style={{ backgroundColor: "#fcfa91" }}
+								border="dark"
+							>
 								<CardTitle>Naman</CardTitle>
 								<hr></hr>
 								<CardBody>
