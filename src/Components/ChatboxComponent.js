@@ -19,23 +19,18 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Chatbox extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			messages: [],
-		};
-	}
 	componentDidMount() {
 		this.props.fetchMessages();
 	}
 
 	render() {
 		return (
-			<div>
+			<>
 				<Header />
 				<Display messages={this.props.messages.messages} />
+
 				<Footer postMessage={this.props.postMessage} />
-			</div>
+			</>
 		);
 	}
 }
