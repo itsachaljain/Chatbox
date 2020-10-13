@@ -10,8 +10,12 @@ class Footer extends Component {
 		};
 	}
 	handleSubmit = () => {
-		this.props.postMessage(this.state.message);
-		this.setState({ message: "" });
+		if (this.state.message == "") {
+			this.setState({ message: "" });
+		} else {
+			this.props.postMessage(this.state.message);
+			this.setState({ message: "" });
+		}
 	};
 
 	handleOnChange = (e) => {
