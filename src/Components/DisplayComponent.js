@@ -19,6 +19,18 @@ function RenderMessages({ messages }) {
 }
 
 class Display extends Component {
+	scrollToBottom = () => {
+		this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+	};
+
+	componentDidMount() {
+		this.scrollToBottom();
+	}
+
+	componentDidUpdate() {
+		this.scrollToBottom();
+	}
+
 	render() {
 		return (
 			<div>
@@ -26,6 +38,12 @@ class Display extends Component {
 					messages={this.props.messages}
 					postMessage={this.props.postMessage}
 				/>
+				<div
+					style={{ float: "left", clear: "both" }}
+					ref={(el) => {
+						this.messagesEnd = el;
+					}}
+				></div>
 			</div>
 		);
 	}

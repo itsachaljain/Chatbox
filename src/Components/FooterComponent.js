@@ -25,7 +25,12 @@ class Footer extends Component {
 					onChange={this.handleOnChange}
 					name="message"
 					placeholder="Type a message"
-					style={{ borderRadius: 20, height: 30, width: 280 }}
+					onKeyPress={(event) => {
+						if (event.key === "Enter") {
+							this.handleSubmit();
+						}
+					}}
+					style={{ borderRadius: 20, height: 30, width: 680 }}
 				/>
 				<Button
 					onClick={this.handleSubmit}
@@ -33,6 +38,7 @@ class Footer extends Component {
 					size="md"
 					style={{
 						backgroundColor: "#128C7E",
+						color: "white",
 						border: "none",
 						borderRadius: 30,
 						cursor: "pointer",

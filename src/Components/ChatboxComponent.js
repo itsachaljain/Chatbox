@@ -27,8 +27,9 @@ class Chatbox extends Component {
 		return (
 			<>
 				<Header />
+				<div style={{ padding: 30 }}></div>
 				<Display messages={this.props.messages.messages} />
-
+				<div style={{ padding: 20 }}></div>
 				<Footer postMessage={this.props.postMessage} />
 			</>
 		);

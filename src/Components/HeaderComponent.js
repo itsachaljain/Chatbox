@@ -7,8 +7,7 @@ class Header extends Component {
 			<Navbar dark>
 				<NavbarBrand className="mr-auto" href="/">
 					<Button
-						className="btn btn-primary"
-						style={{ backgroundColor: "#128C7E", border: "none" }}
+						style={{ backgroundColor: "#128C7E", border: "none", height: 50 }}
 					>
 						<span className="fa fa-arrow-left"></span>
 					</Button>
