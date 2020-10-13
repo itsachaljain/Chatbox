@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardTitle, } from 'reactstrap';
-import '../App.css'
+import { Card, CardBody, CardTitle } from "reactstrap";
 
 function RenderMessages({ messages }) {
 	if (messages != null) {
@@ -9,17 +8,17 @@ function RenderMessages({ messages }) {
 				<ul className="list-unstyled">
 					{messages.map((message) => {
 						return (
-							<div className = "card">
-								<Card>
-									<div className = "card-title"><CardTitle>Naman</CardTitle></div>
-									<hr></hr>
-									<div className = "card-body">
-										<CardBody>
-											<p>{message.message}</p>
-										</CardBody>
-									</div>
-								</Card>
-							</div>
+							<Card
+								className="text-center"
+								style={{ backgroundColor: "#fcfa91" }}
+								border="dark"
+							>
+								<CardTitle>Naman</CardTitle>
+								<hr></hr>
+								<CardBody>
+									<p>{message.message}</p>
+								</CardBody>
+							</Card>
 						);
 					})}
 				</ul>
