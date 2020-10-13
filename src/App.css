@@ -19,34 +19,17 @@
 
 .card {
 	background-color: #fcfa91;
-	size: relative;
-	flex: 1;
 	padding-left: 30px;
-	padding-right: 60px;
-	align-items: center;
-	justify-content: center;
+	padding-right: 30px;
 	max-width: fit-content;
-}
-
-.card-title {
-	text-align: center;
+	word-wrap: break-word;
 }
 
 .card-body {
 	text-rendering: auto;
 	margin: auto;
-	align-items: center;
-	justify-content: center;
-}
-
-.list-unstyled {
-	float: none;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
 }
 
 .container {
-	align-items: center;
-	justify-content: center;
+	padding-right: 20px;
 }
