@@ -11,6 +11,9 @@ export const Messages = (state = { errMess: null, messages: [] }, action) => {
 		case ActionTypes.FAILED_MESSAGES:
 			return { ...state, errMess: action.payload };
 
+		case ActionTypes.DELETE_MESSAGE:
+			return state.messages.filter((data, i) => i !== action.id);
+
 		default:
 			return state;
 	}

@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import Header from "./HeaderComponent";
 import Display from "./DisplayComponent";
 import { connect } from "react-redux";
-import { postMessage, fetchMessages } from "../redux/ActionCreators";
+import {
+	postMessage,
+	fetchMessages,
+	deleteMessage,
+} from "../redux/ActionCreators";
 import Footer from "./FooterComponent";
 
 const mapStateToProps = (state) => {
@@ -13,6 +17,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	postMessage: (message) => dispatch(postMessage(message)),
+	deleteMessage: (index) => dispatch(deleteMessage(index)),
 	fetchMessages: () => {
 		dispatch(fetchMessages());
 	},
@@ -28,7 +33,10 @@ class Chatbox extends Component {
 			<>
 				<Header />
 				<div style={{ padding: 30 }}></div>
-				<Display messages={this.props.messages.messages} />
+				<Display
+					messages={this.props.messages.messages}
+					deleteMessage={this.props.deleteMessage}
+				/>
 				<div style={{ padding: 20 }}></div>
 				<Footer postMessage={this.props.postMessage} />
 			</>

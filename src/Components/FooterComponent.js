@@ -10,7 +10,7 @@ class Footer extends Component {
 		};
 	}
 	handleSubmit = () => {
-		if (this.state.message == "") {
+		if (this.state.message === "") {
 			this.setState({ message: "" });
 		} else {
 			this.props.postMessage(this.state.message);
