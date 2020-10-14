@@ -79,13 +79,13 @@ export const addMessages = (messages) => ({
 	payload: messages,
 });
 
-export const deleteMessage = (message) => (dispatch) => {
-	const delMessage = {
-		type: ActionTypes.DELETE_MESSAGE,
-		message: message,
-	};
-	return fetch(baseUrl + "messages", {
+export const deleteMessage = (id) => (dispatch) => {
+	return fetch(baseUrl + "messages/" + id, {
 		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		credentials: "same-origin",
 	})
 		.then(
 			(response) => {
@@ -100,14 +100,13 @@ export const deleteMessage = (message) => (dispatch) => {
 				}
 			},
 			(error) => {
-				var errmess = new Error(error.message);
-				throw errmess;
+				throw error;
 			}
 		)
 		.then((response) => response.json())
-		.then((response) => dispatch(delMessage(response)))
-		.catch((error) => {
-			console.log("Delete Message", error.message);
-			alert("Your message cannot be deleted\nError: " + error.message);
-		});
+		.then((messages) => {
+			console.log("Message Deleted", messages);
+			dispatch(addMessage(messages));
+		})
+		.catch((error) => dispatch(messagesFailed(error.message)));
 };
