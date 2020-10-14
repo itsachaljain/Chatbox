@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardBody, CardTitle, Button } from "reactstrap";
 
-function RenderMessages({ messages, deleteMessage, index }) {
+function RenderMessages({ messages, deleteMessage }) {
 	if (messages != null) {
 		return (
 			<div className="container">
@@ -16,7 +16,8 @@ function RenderMessages({ messages, deleteMessage, index }) {
 								<CardTitle>
 									Naman
 									<Button
-										onClick={(e) => deleteMessage(e, index)}
+										key={messages.id}
+										onClick={() => deleteMessage(messages._id)}
 										style={{
 											backgroundColor: "#fcfa91",
 											border: "none",
