@@ -78,3 +78,36 @@ export const addMessages = (messages) => ({
 	type: ActionTypes.LOAD_MESSAGES,
 	payload: messages,
 });
+
+export const deleteMessage = (message) => (dispatch) => {
+	const delMessage = {
+		type: ActionTypes.DELETE_MESSAGE,
+		message: message,
+	};
+	return fetch(baseUrl + "messages", {
+		method: "DELETE",
+	})
+		.then(
+			(response) => {
+				if (response.ok) {
+					return response;
+				} else {
+					var error = new Error(
+						"Error " + response.status + ": " + response.statusText
+					);
+					error.response = response;
+					throw error;
+				}
+			},
+			(error) => {
+				var errmess = new Error(error.message);
+				throw errmess;
+			}
+		)
+		.then((response) => response.json())
+		.then((response) => dispatch(delMessage(response)))
+		.catch((error) => {
+			console.log("Delete Message", error.message);
+			alert("Your message cannot be deleted\nError: " + error.message);
+		});
+};

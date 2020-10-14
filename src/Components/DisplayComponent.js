@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardTitle } from "reactstrap";
+import { Card, CardBody, CardTitle, Button } from "reactstrap";
 
-function RenderMessages({ messages }) {
+function RenderMessages({ messages, deleteMessage, index }) {
 	if (messages != null) {
 		return (
 			<div className="container">
@@ -13,7 +13,20 @@ function RenderMessages({ messages }) {
 								style={{ backgroundColor: "#fcfa91" }}
 								border="dark"
 							>
-								<CardTitle>Naman</CardTitle>
+								<CardTitle>
+									Naman
+									<Button
+										onClick={(e) => deleteMessage(e, index)}
+										style={{
+											backgroundColor: "#fcfa91",
+											border: "none",
+											cursor: "pointer",
+											float: "right",
+										}}
+									>
+										<span className="fa fa-trash"></span>
+									</Button>
+								</CardTitle>
 								<hr></hr>
 								<CardBody>
 									<p>{message.message}</p>
@@ -24,6 +37,8 @@ function RenderMessages({ messages }) {
 				</ul>
 			</div>
 		);
+	} else {
+		return <div></div>;
 	}
 }
 
@@ -46,6 +61,7 @@ class Display extends Component {
 				<RenderMessages
 					messages={this.props.messages}
 					postMessage={this.props.postMessage}
+					deleteMessage={this.props.deleteMessage}
 				/>
 				<div
 					style={{ float: "left", clear: "both" }}
